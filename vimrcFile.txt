@@ -1,0 +1,74 @@
+set nocompatible
+filetype off
+
+set backspace=2
+set autoindent
+set wildmenu
+set showcmd
+set smarttab
+set wrap
+set laststatus=2
+set ruler
+set textwidth=80
+set nrformats-=octal
+set tabstop=4
+set shiftwidth=0
+set softtabstop=-1
+set confirm
+set nomodeline
+set nostartofline
+set visualbell
+set hidden
+map Y y$
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Vundle has to manage itself
+Plugin 'VundleVim/Vundle.vim'
+
+" Other plugins go here...
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/sensible'
+Plugin 'tpope/vim-commentary'
+Plugin 'Yggdroot/indentLine'
+
+Plugin 'Rigellute/rigel'
+Plugin 'franbach/miramare'
+Plugin 'sainnhe/gruvbox-material'
+
+Plugin 'luochen1990/rainbow'
+
+call vundle#end()
+filetype plugin indent on
+
+" Other .vimrc stuff goes below here
+set clipboard^=unnamedplus
+
+set termguicolors
+let g:rainbow_active = 1
+
+if &term =~ '256color'
+	" Disable Background Color Erase (BCE) so that color schemes
+	" work properly when Vim is used inside tmux and GNU screen.
+	set t_ut=
+endif
+
+syntax enable
+colorscheme rigel
+
+"Manual changes to miramare
+"highlight Number ctermfg=170
+"highlight String ctermfg=142
+"highlight Green ctermfg=072
+"highlight Cyan ctermfg=073
+
+"for rigel
+hi String guifg=#8bbb24
+hi Function guifg=#1ec7b8
+hi Normal guifg=#bbbbbb
+hi Normal guibg=#012b37
+let g:rainbow_conf = {
+\	'guifgs': ['#f29349', '#50dcc6', '#d337e5', 'seagreen3', 'firebrick'],
+\}
